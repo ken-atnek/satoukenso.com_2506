@@ -82,7 +82,7 @@ const Header = () => {
             !isOpen ? styles.closing : ''
           }`}
         >
-          <Link href="/" className={styles.itemLink} onClick={closeMenu}>
+          <Link href="/about/" className={styles.itemLink} onClick={closeMenu}>
             佐藤建装について
           </Link>
           <Link href="#" className={styles.itemLink} onClick={closeMenu}>
