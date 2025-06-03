@@ -8,6 +8,8 @@
 import styles from '@/styles/components/common/Header.module.scss';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
+import Logo from '@/assets/images/logo.webp';
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -70,7 +72,9 @@ const Header = () => {
     >
       <article>
         <Link href="/" className={styles.linkH1}>
-          <h1>kumanichigroup</h1>
+          <h1>
+            <Image src={Logo} alt="佐藤建装" />
+          </h1>
         </Link>
         <nav
           id="headerNav"
@@ -78,47 +82,17 @@ const Header = () => {
             !isOpen ? styles.closing : ''
           }`}
         >
-          <Link
-            href="/"
-            className={`${styles.itemLink} ${styles.linkTop}`}
-            onClick={closeMenu}
-          >
-            TOP
+          <Link href="/" className={styles.itemLink} onClick={closeMenu}>
+            佐藤建装について
           </Link>
-          <Link
-            href="/#ContainerNews"
-            className={styles.itemLink}
-            onClick={closeMenu}
-          >
-            NEWS
+          <Link href="#" className={styles.itemLink} onClick={closeMenu}>
+            実績紹介
           </Link>
-          <Link
-            href="/#ContainerAbout"
-            className={styles.itemLink}
-            onClick={closeMenu}
-          >
-            about us
+          <Link href="/news/" className={styles.itemLink} onClick={closeMenu}>
+            新着情報
           </Link>
-          <Link
-            href="/#ContainerFlow"
-            className={styles.itemLink}
-            onClick={closeMenu}
-          >
-            flow
-          </Link>
-          <Link
-            href="/#ContainerFaq"
-            className={styles.itemLink}
-            onClick={closeMenu}
-          >
-            faq
-          </Link>
-          <Link
-            href="/#ContainerContact"
-            className={styles.itemLink}
-            onClick={closeMenu}
-          >
-            entry
+          <Link href="#" className={styles.itemLink} onClick={closeMenu}>
+            お問い合わせ
           </Link>
         </nav>
       </article>

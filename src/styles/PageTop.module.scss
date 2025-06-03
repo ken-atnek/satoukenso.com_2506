@@ -1,0 +1,138 @@
+@use "variable" as *;
+@use "svg" as *;
+
+/* =================================
+** フェード画像
+------------------------------ */
+.containerFadeImage {
+    position: relative;
+    height: 72rem;
+    background-color: #000;
+    overflow: hidden;
+    .slideImage {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        opacity: 0;
+        transition: opacity 1.8s ease-in-out;
+        z-index: 1;
+        &.active {
+            opacity: 1;
+            z-index: 2;
+        }
+    }
+    .boxTitle {
+        position: absolute;
+        inset: 0;
+        z-index: 3;
+        display: grid;
+        place-content: center;
+        color: #fff;
+        font-size: FZ(36);
+        font-weight: 500;
+        writing-mode: vertical-rl; //縦書き
+        text-orientation: upright; //縦書き英数回転
+        font-feature-settings: initial; //左詰め解除
+        line-height: 1.6em;
+        letter-spacing: 0.04em;
+        &::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-color: rgba(#000000, 0.25);
+            z-index: -1;
+        }
+    }
+}
+/* =================================
+** コンセプト
+------------------------------ */
+.containerConcept {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-inline: 2em;
+    article {
+        max-width: 111rem;
+        padding: 5em 0 3em;
+        display: flex;
+        flex-direction: column;
+    }
+    .itemLink {
+        align-self: center;
+        font-size: inherit;
+        margin-top: 2em;
+        color: $base-black;
+        transition: 0.3s ease-out;
+        span {
+            font-size: FZ(16);
+            text-transform: uppercase;
+            font-weight: 600;
+            position: relative;
+            padding-bottom: 0.3em;
+            &::before {
+                content: "";
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                border-bottom: 1px solid $base-black;
+            }
+            &::after {
+                content: ">";
+                margin-left: 0.2em;
+            }
+        }
+        @include hover {
+            color: $base-orange;
+        }
+    }
+}
+/* =================================
+** モノクロスライド画像
+------------------------------ */
+.containerSlideImage {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    .sliderTrack {
+        display: flex;
+        width: calc(900px * 6); // 3 images × 2 = 6
+        animation: scrollLoop 40s linear infinite;
+    }
+    .slideItem {
+        flex: 0 0 auto;
+        width: 900px;
+        height: 300px;
+        background-size: cover;
+        background-position: center;
+    }
+}
+@keyframes scrollLoop {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+/* =================================
+** 新着譲歩
+------------------------------ */
+.containerNews {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-inline: 2em;
+    article {
+        border-top: 1px solid #f2f2f2;
+        max-width: 111rem;
+        margin-top: 8em;
+        padding-top: 2em;
+    }
+}

@@ -1,0 +1,70 @@
+@use "variable" as *;
+@use "svg" as *;
+
+.newsList {
+    position: relative;
+    font-size: inherit;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    .newsItem {
+        grid-column: span 2;
+        display: grid;
+        grid-template-columns: subgrid;
+        font-size: inherit;
+        border-bottom: 1px solid #000;
+        .date {
+            font-size: FZ(16);
+            font-weight: 600;
+        }
+        .title {
+            font-size: FZ(14);
+            font-weight: 500;
+            letter-spacing: 0.04em;
+        }
+    }
+    &.top {
+        margin-top: 2em;
+        .newsItem {
+            align-items: center;
+            padding: 2em;
+            gap: 0 5em;
+        }
+        .title {
+            a {
+                font-size: inherit;
+                transition: 0.3s ease-out;
+                @include hover {
+                    color: $base-orange;
+                }
+            }
+        }
+    }
+    &.page {
+        .newsItem {
+            padding: 1em 2em;
+            gap: 0 1em;
+            grid-template-rows: auto auto 1fr;
+            .thumbnail {
+                grid-row: span 3;
+            }
+            .title,
+            .date {
+                margin-top: 1em;
+            }
+            .readMore {
+                font-size: FZ(14);
+                margin-top: 2em;
+                font-weight: 600;
+                text-transform: uppercase;
+                transition: 0.3s ease-out;
+                &::after {
+                    content: ">";
+                    margin-left: 0.5em;
+                }
+                @include hover {
+                    color: $base-orange;
+                }
+            }
+        }
+    }
+}

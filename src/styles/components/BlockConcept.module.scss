@@ -1,0 +1,47 @@
+@use "variable" as *;
+@use "svg" as *;
+
+.boxContents {
+    display: flex;
+    position: relative;
+    gap: 0 4em;
+    font-size: inherit;
+    padding-top: 3em;
+    padding-bottom: 2em;
+    margin-top: 2em;
+    &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: calc(100vw - ((100vw - 111rem) / 2));
+        background-color: #000;
+        z-index: -1;
+        clip-path: inset(0 0 0 5em);
+    }
+    img {
+        max-width: 43rem;
+        flex: 1;
+    }
+    .wrapText {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        font-size: inherit;
+        color: #fff;
+        h3 {
+            font-size: FZ(24);
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            line-height: 1.4em;
+        }
+        p {
+            font-size: FZ(16);
+            margin-top: 1em;
+            text-align: justify;
+            letter-spacing: 0.08em;
+            line-height: 2em;
+        }
+    }
+}
