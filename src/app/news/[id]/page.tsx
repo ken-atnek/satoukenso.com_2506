@@ -7,11 +7,31 @@
 import { newsData } from '@/data/newsData';
 import { notFound } from 'next/navigation';
 import styles from '@/styles/components/news/ContainerNewsDetail.module.scss';
+import type { Metadata } from 'next';
 
 export function generateStaticParams() {
   return newsData.map((item) => ({
     id: item.id,
   }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { id: string };
+}): Promise<Metadata> {
+  const article = newsData.find((item) => item.id === params.id);
+  if (!article) return {};
+
+  const plainText = String(article.body ?? '')
+    .replace(/<[^>]+>/g, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+
+  return {
+    title: `${article.title} | 新着情報 | 佐藤建装`,
+    description: plainText.slice(0, 80) + '...',
+  };
 }
 
 export default function NewsDetailPage({ params }: { params: { id: string } }) {

@@ -34,9 +34,6 @@ export const metadata: Metadata = {
   ...(isRealProduction && {
     metadataBase,
     openGraph: {
-      title: ' 佐藤建装 | 熊本県水俣市にある建築・リノベーション',
-      description:
-        '佐藤建装は、熊本県水俣市にある建築・リノベーション会社です。20年以上の施工経験を基に、お客様のニーズやご希望を実現するため、新しいデザイン・厳選の素材により新鮮で柔軟な提案を行います。',
       url: metadataBase?.toString(),
       type: 'website',
       images: [
@@ -49,10 +46,6 @@ export const metadata: Metadata = {
       ],
     },
   }),
-  title: ' 佐藤建装 | 熊本県水俣市にある建築・リノベーション',
-  description: isRealProduction
-    ? '佐藤建装は、熊本県水俣市にある建築・リノベーション会社です。20年以上の施工経験を基に、お客様のニーズやご希望を実現するため、新しいデザイン・厳選の素材により新鮮で柔軟な提案を行います。'
-    : undefined,
   robots: isRealProduction ? 'index, follow' : 'noindex, nofollow',
   icons: [
     {

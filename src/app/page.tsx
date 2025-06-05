@@ -11,7 +11,15 @@ import BlockConcept from '@/components/BlockConcept';
 import Link from 'next/link';
 import NewsList from '@/components/news/NewsList';
 import { newsData } from '@/data/newsData';
+import type { Metadata } from 'next';
 
+export const generateMetadata = (): Metadata => {
+  return {
+    title: '佐藤建装 | 熊本県水俣市の建築・リノベーション',
+    description:
+      '佐藤建装のコンセプトや事業内容、会社情報をご紹介します。熊本県水俣市で20年以上の実績を持つ建築・リノベーション会社です。',
+  };
+};
 export default function Home() {
   return (
     <>
