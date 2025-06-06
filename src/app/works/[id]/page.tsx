@@ -23,9 +23,9 @@ export function generateStaticParams() {
 export async function generateMetadata({
   params,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }): Promise<Metadata> {
-  const { id } = await Promise.resolve(params);
+  const { id } = await params;
   const article = workList.find((item) => item.id === id);
   if (!article) return {};
 
@@ -33,7 +33,7 @@ export async function generateMetadata({
 
   return {
     title: `${article.title} | 実績紹介 | 佐藤建装`,
-    description: plainText.slice(0, 80) + '...',
+    description: plainText,
   };
 }
 
@@ -41,9 +41,9 @@ export async function generateMetadata({
 export default async function WorkDetailPage({
   params,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }) {
-  const { id } = await Promise.resolve(params);
+  const { id } = await params;
   const article = workList.find((item) => item.id === id);
   if (!article) return notFound();
 

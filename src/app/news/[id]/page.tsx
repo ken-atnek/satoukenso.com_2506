@@ -7,7 +7,6 @@
 import { newsData } from '@/data/newsData';
 import { notFound } from 'next/navigation';
 import styles from '@/styles/components/news/ContainerNewsDetail.module.scss';
-import type { Metadata } from 'next';
 
 export function generateStaticParams() {
   return newsData.map((item) => ({
@@ -15,34 +14,32 @@ export function generateStaticParams() {
   }));
 }
 
-// ← ここが「async function」になっていること
+import type { Metadata } from 'next';
+
 export async function generateMetadata({
   params,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }): Promise<Metadata> {
-  const { id } = await Promise.resolve(params);
+  const { id } = await params;
   const article = newsData.find((item) => item.id === id);
   if (!article) return {};
 
-  const plainText = String(article.body ?? '')
-    .replace(/<[^>]+>/g, '')
-    .replace(/\s+/g, ' ')
-    .trim();
+  const plainText =
+    typeof article.body === 'string' ? article.body : 'ニュース詳細ページです';
 
   return {
-    title: `${article.title} | 新着情報 | 佐藤建装`,
-    description: plainText.slice(0, 80) + '...',
+    title: article.title,
+    description: plainText.replace(/\s+/g, ' ').trim(),
   };
 }
 
-// ← ここも「export default async function」であること
 export default async function NewsDetailPage({
   params,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }) {
-  const { id } = await Promise.resolve(params);
+  const { id } = await params;
   const article = newsData.find((item) => item.id === id);
   if (!article) return notFound();
 
