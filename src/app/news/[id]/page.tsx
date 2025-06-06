@@ -15,12 +15,14 @@ export function generateStaticParams() {
   }));
 }
 
+// ← ここが「async function」になっていること
 export async function generateMetadata({
   params,
 }: {
   params: { id: string };
 }): Promise<Metadata> {
-  const article = newsData.find((item) => item.id === params.id);
+  const { id } = await Promise.resolve(params);
+  const article = newsData.find((item) => item.id === id);
   if (!article) return {};
 
   const plainText = String(article.body ?? '')
@@ -34,11 +36,17 @@ export async function generateMetadata({
   };
 }
 
-export default function NewsDetailPage({ params }: { params: { id: string } }) {
-  const article = newsData.find((item) => item.id === params.id);
+// ← ここも「export default async function」であること
+export default async function NewsDetailPage({
+  params,
+}: {
+  params: { id: string };
+}) {
+  const { id } = await Promise.resolve(params);
+  const article = newsData.find((item) => item.id === id);
   if (!article) return notFound();
-  const isoDate = article.date.replace(/\./g, '-');
 
+  const isoDate = article.date.replace(/\./g, '-');
   const date = new Date(isoDate);
   const formatted = `${date.getFullYear()}年${(date.getMonth() + 1)
     .toString()
