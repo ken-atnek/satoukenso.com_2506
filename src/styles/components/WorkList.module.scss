@@ -1,0 +1,53 @@
+@use "variable" as *;
+@use "svg" as *;
+.listWorks {
+    position: relative;
+    font-size: unset;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0 3em;
+}
+.boxDetail {
+    background-color: #fff;
+    font-size: inherit;
+    padding: 4em 2em 2em;
+    grid-row: span 4;
+    display: grid;
+    grid-template-rows: subgrid;
+    gap: 0.5em 0;
+    img {
+        aspect-ratio: 1.5;
+        object-fit: cover;
+    }
+    h3 {
+        font-size: FZ(16);
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        margin-top: 0.5em;
+    }
+    p {
+        font-size: FZ(14);
+        letter-spacing: 0.08em;
+    }
+    .itemLink {
+        font-size: inherit;
+        margin-top: 0.5em;
+        transition: 0.3s ease-out;
+        span {
+            font-size: FZ(14);
+            font-weight: 600;
+            text-transform: uppercase;
+            border-bottom: 1px solid;
+            &::after {
+                content: ">";
+                margin-left: 0.5em;
+            }
+        }
+        @include hover {
+            color: $base-orange;
+        }
+    }
+    &:nth-of-type(n + 4) {
+        margin-top: 3em;
+    }
+}

@@ -34,20 +34,21 @@
         color: #fff;
         font-size: FZ(36);
         font-weight: 500;
-        writing-mode: vertical-rl; //縦書き
-        text-orientation: upright; //縦書き英数回転
-        font-feature-settings: initial; //左詰め解除
+        writing-mode: vertical-rl; // 縦書き
+        text-orientation: upright; // 縦書き英数回転
+        font-feature-settings: initial; // 左詰め解除
         line-height: 1.6em;
         letter-spacing: 0.04em;
         &::before {
             content: "";
             position: absolute;
             inset: 0;
-            background-color: rgba(#000000, 0.25);
+            background-color: rgba(#000, 0.25);
             z-index: -1;
         }
     }
 }
+
 /* =================================
 ** コンセプト
 ------------------------------ */
@@ -92,6 +93,7 @@
         }
     }
 }
+
 /* =================================
 ** モノクロスライド画像
 ------------------------------ */
@@ -103,7 +105,7 @@
     .sliderTrack {
         display: flex;
         width: calc(900px * 6); // 3 images × 2 = 6
-        animation: scrollLoop 40s linear infinite;
+        animation: scroll-loop 40s linear infinite;
     }
     .slideItem {
         flex: 0 0 auto;
@@ -113,7 +115,7 @@
         background-position: center;
     }
 }
-@keyframes scrollLoop {
+@keyframes scroll-loop {
     0% {
         transform: translateX(0%);
     }
@@ -121,6 +123,7 @@
         transform: translateX(-50%);
     }
 }
+
 /* =================================
 ** 新着譲歩
 ------------------------------ */
@@ -134,5 +137,25 @@
         max-width: 111rem;
         margin-top: 8em;
         padding-top: 2em;
+    }
+}
+
+/* =================================
+** 実績紹介
+------------------------------ */
+.containerWorks {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-inline: 2em;
+    background-color: #f2f2f2;
+    margin-top: 8em;
+    article {
+        max-width: 111rem;
+        padding-top: 5em;
+        padding-bottom: 8em;
+        ul {
+            margin-top: 3em;
+        }
     }
 }

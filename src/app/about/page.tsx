@@ -73,7 +73,7 @@ export default function AboutPage() {
           </h2>
           <ul className={styles.serviceList}>
             {serviceList.map((item, index) => (
-              <li key={index}>
+              <li key={index} className={styles.listDetail}>
                 <Image
                   src={item.image}
                   alt={item.title}

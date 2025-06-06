@@ -1,0 +1,57 @@
+@use "variable" as *;
+@use "svg" as *;
+.containerWorkListDetail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3em 2em;
+    article {
+        max-width: 88rem;
+        display: flex;
+        flex-direction: column;
+        gap: 2em 0;
+        .headImage {
+            img {
+                aspect-ratio: 1.78;
+                object-fit: cover;
+            }
+        }
+        h1 {
+            font-size: FZ(22);
+            font-weight: 500;
+            letter-spacing: 0.08em;
+        }
+        .sidebarH1 {
+            font-size: FZ(16);
+        }
+        .boxBody {
+            position: relative;
+            font-size: inherit;
+            display: flex;
+            flex-direction: column;
+            border-top: 1px solid #f2f2f2;
+            padding-top: 2em;
+            margin-top: 1em;
+            gap: 1.6em 0;
+            p {
+                font-size: FZ(14);
+                letter-spacing: 0.08em;
+                line-height: 1.8em;
+                text-align: justify;
+            }
+        }
+        .itemLink {
+            position: relative;
+            font-size: inherit;
+            margin-top: 3em;
+            span {
+                font-size: FZ(14);
+                border-bottom: 1px solid;
+                &::before {
+                    content: "<";
+                    margin-right: 0.5em;
+                }
+            }
+        }
+    }
+}

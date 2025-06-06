@@ -51,12 +51,17 @@ const Footer = () => {
           </nav>
         </div>
         <nav className={styles.navBan}>
-          <a href="https://partnershop.takara-standard.co.jp/" target="_blank">
+          <a
+            href="https://partnershop.takara-standard.co.jp/"
+            target="_blank"
+            className={styles.itemBan}
+          >
             <Image src={Ban01} alt="タカラスタンダードパートナーショップ" />
           </a>
           <a
             href="https://www.designshikaku.net/interia/kukan/"
             target="_blank"
+            className={styles.itemBan}
           >
             <Image src={Ban02} alt="日本デザインプランナー協会【JDP】" />
           </a>

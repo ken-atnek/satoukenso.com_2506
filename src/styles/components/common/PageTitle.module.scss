@@ -1,6 +1,5 @@
 @use "variable" as *;
 @use "svg" as *;
-
 .containerPageHead {
     height: 32rem;
     background-repeat: no-repeat;
@@ -8,7 +7,6 @@
     background-position: center center;
     display: grid;
     place-content: center;
-
     color: #fff;
     .h2Sidebar {
         font-size: FZ(32);

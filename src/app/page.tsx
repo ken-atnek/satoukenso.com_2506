@@ -11,6 +11,8 @@ import BlockConcept from '@/components/BlockConcept';
 import Link from 'next/link';
 import NewsList from '@/components/news/NewsList';
 import { newsData } from '@/data/newsData';
+import { workList } from '@/data/workListData';
+import WorkList from '@/components/WorkList';
 import type { Metadata } from 'next';
 
 export const generateMetadata = (): Metadata => {
@@ -42,6 +44,14 @@ export default function Home() {
             <span>news</span>新着情報
           </h2>
           <NewsList items={newsData} variant="top" />
+        </article>
+      </section>
+      <section className={styles.containerWorks}>
+        <article>
+          <h2 className="decorationH2">
+            <span>works</span>佐藤建装の実績
+          </h2>
+          <WorkList items={workList.slice(0, 3)} />
         </article>
       </section>
     </>

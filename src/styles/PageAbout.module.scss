@@ -16,6 +16,7 @@
         flex-direction: column;
     }
 }
+
 /* =================================
 ** 私たちにできること
 ------------------------------ */
@@ -37,7 +38,7 @@
             flex-direction: column;
             gap: 5em 0;
             margin-top: 5em;
-            li {
+            .listDetail {
                 position: relative;
                 display: grid;
                 grid-template-columns: 48% 1fr;
@@ -76,6 +77,7 @@
         }
     }
 }
+
 /* =================================
 ** 会社概要
 ------------------------------ */

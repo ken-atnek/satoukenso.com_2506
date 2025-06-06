@@ -85,7 +85,7 @@ const Header = () => {
           <Link href="/about/" className={styles.itemLink} onClick={closeMenu}>
             佐藤建装について
           </Link>
-          <Link href="#" className={styles.itemLink} onClick={closeMenu}>
+          <Link href="/works/" className={styles.itemLink} onClick={closeMenu}>
             実績紹介
           </Link>
           <Link href="/news/" className={styles.itemLink} onClick={closeMenu}>
