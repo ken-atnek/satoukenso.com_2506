@@ -8,15 +8,23 @@
     display: grid;
     place-content: center;
     color: #fff;
+    &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-color: rgba(#000, 0.25);
+    }
     .h2Sidebar {
         font-size: FZ(32);
         text-transform: uppercase;
         font-weight: 700;
         letter-spacing: 0.04em;
+        z-index: 1;
     }
     h2 {
         font-size: FZ(12);
         text-align: center;
         letter-spacing: 0.2em;
+        z-index: 1;
     }
 }

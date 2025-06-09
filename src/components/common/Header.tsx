@@ -91,7 +91,11 @@ const Header = () => {
           <Link href="/news/" className={styles.itemLink} onClick={closeMenu}>
             新着情報
           </Link>
-          <Link href="#" className={styles.itemLink} onClick={closeMenu}>
+          <Link
+            href="/contact/"
+            className={styles.itemLink}
+            onClick={closeMenu}
+          >
             お問い合わせ
           </Link>
         </nav>
