@@ -23,9 +23,11 @@
     @include sp {
         padding: 8vw 6vw 4vw;
     }
-    img {
-        aspect-ratio: 1.5;
-        object-fit: cover;
+    .wrapImage {
+        img {
+            aspect-ratio: 1.5;
+            object-fit: cover;
+        }
     }
     h3 {
         font-size: FZ(16);

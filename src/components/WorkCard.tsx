@@ -20,7 +20,9 @@ type Props = {
 export default function WorkCard({ id, title, description, thumbnail }: Props) {
   return (
     <li className={styles.boxDetail}>
-      <Image src={thumbnail} alt={title} />
+      <div className={styles.wrapImage}>
+        <Image src={thumbnail} alt={title} />
+      </div>
       <h3>{title}</h3>
       <p>{description}</p>
       <Link href={`/works/${id}`} className={styles.itemLink}>
