@@ -32,7 +32,7 @@ export default function Home() {
             <span>concept</span>佐藤建装のコンセプト
           </h2>
           <BlockConcept />
-          <Link href="#" className={styles.itemLink}>
+          <Link href="/about/" className={styles.itemLink}>
             <span>read more</span>
           </Link>
         </article>

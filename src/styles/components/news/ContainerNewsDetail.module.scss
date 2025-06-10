@@ -5,12 +5,22 @@
     flex-direction: column;
     align-items: center;
     padding: 3em 2em 5em;
+    @include sp {
+        padding: 6vw 4vw;
+    }
     article {
         max-width: 90rem;
         display: flex;
         flex-direction: column;
+        @include sp {
+            max-width: unset;
+            gap: 4vw 0;
+        }
         h1 {
             font-size: FZ(22);
+            @include sp {
+                text-align: center;
+            }
         }
         time {
             font-size: FZ(16);
@@ -27,6 +37,19 @@
                 letter-spacing: 0.08em;
                 margin-top: 1em;
                 line-height: 1.8em;
+            }
+        }
+        .linkList {
+            font-size: inherit;
+            margin-top: 3em;
+            align-self: flex-end;
+            span {
+                font-size: FZ(16);
+                border-bottom: 1px solid;
+                &::before {
+                    content: "<";
+                    margin-right: 0.5em;
+                }
             }
         }
     }

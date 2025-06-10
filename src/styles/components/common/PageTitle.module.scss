@@ -8,6 +8,9 @@
     display: grid;
     place-content: center;
     color: #fff;
+    @include sp {
+        height: 30vh;
+    }
     &::before {
         content: "";
         position: absolute;

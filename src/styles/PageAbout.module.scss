@@ -9,11 +9,17 @@
     flex-direction: column;
     align-items: center;
     padding-inline: 2em;
+    @include sp {
+        padding-inline: 4vw;
+    }
     article {
         max-width: 111rem;
         padding: 8em 0 5em;
         display: flex;
         flex-direction: column;
+        @include sp {
+            padding: 10vw 0;
+        }
     }
 }
 
@@ -25,6 +31,9 @@
     flex-direction: column;
     align-items: center;
     padding-inline: 2em;
+    @include sp {
+        padding-inline: 4vw;
+    }
     article {
         max-width: 111rem;
         padding: 2em 0 8em;
@@ -44,6 +53,11 @@
                 grid-template-columns: 48% 1fr;
                 gap: 0 3em;
                 font-size: inherit;
+                @include sp {
+                    grid-template-columns: unset;
+                    grid-auto-flow: row;
+                    gap: 4vw 0;
+                }
                 .itemImage {
                     img {
                         aspect-ratio: 1.5;
@@ -65,12 +79,21 @@
                         line-height: 1.8em;
                         text-align: justify;
                         margin-top: 1.6em;
+                        @include sp {
+                            margin-top: 2vw;
+                        }
                     }
                 }
                 &:nth-of-type(2n) {
                     flex-direction: row-reverse;
+                    @include sp {
+                        flex-direction: unset;
+                    }
                     .wrapText {
                         order: -1;
+                        @include sp {
+                            order: unset;
+                        }
                     }
                 }
             }
@@ -86,6 +109,9 @@
     flex-direction: column;
     align-items: center;
     padding-inline: 2em;
+    @include sp {
+        padding-inline: 4vw;
+    }
     article {
         max-width: 111rem;
         padding: 2em 0 3em;
@@ -98,6 +124,10 @@
             display: grid;
             grid-template-columns: auto 1fr;
             margin-top: 3em;
+            @include sp {
+                grid-template-columns: unset;
+                grid-auto-flow: row;
+            }
             div {
                 font-size: inherit;
                 position: relative;
@@ -107,9 +137,19 @@
                 border-bottom: 1px solid #000;
                 padding: 1em 2em;
                 gap: 0 8em;
+                @include sp {
+                    grid-column: unset;
+                    display: flex;
+                    flex-direction: column;
+                    padding: 4vw 0;
+                    gap: 2vw 0;
+                }
                 dt {
                     font-size: FZ(14);
                     align-self: center;
+                    @include sp {
+                        align-self: flex-start;
+                    }
                 }
                 dd {
                     font-size: FZ(14);
@@ -120,6 +160,9 @@
                         font-size: inherit;
                         display: flex;
                         gap: 0 1em;
+                        @include sp {
+                            flex-direction: column;
+                        }
                         span {
                             i {
                                 margin-left: 0.5em;

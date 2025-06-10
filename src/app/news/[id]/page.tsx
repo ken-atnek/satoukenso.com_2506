@@ -7,6 +7,7 @@
 import { newsData } from '@/data/newsData';
 import { notFound } from 'next/navigation';
 import styles from '@/styles/components/news/ContainerNewsDetail.module.scss';
+import Link from 'next/link';
 
 export function generateStaticParams() {
   return newsData.map((item) => ({
@@ -55,6 +56,9 @@ export default async function NewsDetailPage({
         <h1>{article.title}</h1>
         <time dateTime={isoDate}>{formatted}</time>
         <div className={styles.boxDetails}>{article.body}</div>
+        <Link href="/news" className={styles.linkList}>
+          <span>一覧に戻る</span>
+        </Link>
       </article>
     </section>
   );

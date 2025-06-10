@@ -8,6 +8,10 @@
     padding-top: 3em;
     padding-bottom: 2em;
     margin-top: 2em;
+    @include sp {
+        flex-direction: column;
+        padding-top: unset;
+    }
     &::before {
         content: "";
         position: absolute;
@@ -18,10 +22,20 @@
         background-color: #000;
         z-index: -1;
         clip-path: inset(0 0 0 5em);
+        @include sp {
+            left: unset;
+            top: 4vw;
+            right: 4vw;
+            width: 92vw;
+            clip-path: unset;
+        }
     }
     img {
         max-width: 43rem;
         flex: 1;
+        @include sp {
+            width: 100%;
+        }
     }
     .wrapText {
         position: relative;
@@ -29,6 +43,9 @@
         flex-direction: column;
         font-size: inherit;
         color: #fff;
+        @include sp {
+            padding: 10vw 10vw 0 0;
+        }
         h3 {
             font-size: FZ(24);
             font-weight: 500;
@@ -41,6 +58,9 @@
             text-align: justify;
             letter-spacing: 0.08em;
             line-height: 2em;
+            @include sp {
+                line-height: 1.6em;
+            }
         }
     }
 }

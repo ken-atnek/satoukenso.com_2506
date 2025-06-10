@@ -7,11 +7,10 @@
 
 'use client';
 
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import PageTitle from '@/components/common/PageTitle';
 import bgImage from '@/assets/images/title-contact-bg.webp';
 import styles from '@/styles/PageContact.module.scss';
-import { useState } from 'react';
 import Modal from '@/components/Modal';
 
 export default function PageContact() {
@@ -28,6 +27,8 @@ export default function PageContact() {
   const [isConfirming, setIsConfirming] = useState(false); // 確認画面フラグ
   const [isModalOpen, setIsModalOpen] = useState(false); // モーダル制御
 
+  const topRef = useRef<HTMLDivElement | null>(null);
+
   // **確認ボタンの処理**
   const handleConfirm = (e: React.FormEvent) => {
     e.preventDefault();
@@ -39,6 +40,9 @@ export default function PageContact() {
 
     setIsConfirming(true); // 確認画面へ
     setStatus('');
+    setTimeout(() => {
+      topRef.current?.scrollIntoView({ behavior: 'smooth' });
+    }, 0);
   };
 
   // **修正ボタンの処理（入力画面に戻る）**
@@ -97,11 +101,13 @@ export default function PageContact() {
 
   return (
     <>
-      <PageTitle
-        title="お問い合わせ"
-        titleEn="contact"
-        backgroundImage={bgImage}
-      />
+      <div ref={topRef}>
+        <PageTitle
+          title="お問い合わせ"
+          titleEn="contact"
+          backgroundImage={bgImage}
+        />
+      </div>
       <section className={styles.containerContact}>
         <article>
           <h3>お問い合わせフォーム</h3>

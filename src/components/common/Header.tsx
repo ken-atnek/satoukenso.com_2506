@@ -82,6 +82,13 @@ const Header = () => {
             !isOpen ? styles.closing : ''
           }`}
         >
+          <Link
+            href="/"
+            className={`${styles.itemLink} ${styles.isMobile}`}
+            onClick={closeMenu}
+          >
+            TOP
+          </Link>
           <Link href="/about/" className={styles.itemLink} onClick={closeMenu}>
             佐藤建装について
           </Link>

@@ -9,6 +9,10 @@
     height: 72rem;
     background-color: #000;
     overflow: hidden;
+    @include sp {
+        height: 78vh;
+        height: 78dvh;
+    }
     .slideImage {
         position: absolute;
         top: 0;
@@ -39,6 +43,9 @@
         font-feature-settings: initial; // 左詰め解除
         line-height: 1.6em;
         letter-spacing: 0.04em;
+        @include sp {
+            font-size: FZ(24);
+        }
         &::before {
             content: "";
             position: absolute;
@@ -57,6 +64,9 @@
     flex-direction: column;
     align-items: center;
     padding-inline: 2em;
+    @include sp {
+        padding-inline: 4vw;
+    }
     article {
         max-width: 111rem;
         padding: 5em 0 3em;
@@ -69,6 +79,9 @@
         margin-top: 2em;
         color: $base-black;
         transition: 0.3s ease-out;
+        @include sp {
+            align-self: flex-start;
+        }
         span {
             font-size: FZ(16);
             text-transform: uppercase;
@@ -102,17 +115,28 @@
     width: 100%;
     height: 300px;
     overflow: hidden;
+    --image-width: 900px;
+    @include sp {
+        height: 15vh;
+        --image-width: 80vw;
+    }
     .sliderTrack {
         display: flex;
-        width: calc(900px * 6); // 3 images × 2 = 6
+        width: calc(var(--image-width) * 6); // 3 images × 2 = 6
         animation: scroll-loop 40s linear infinite;
+        @include sp {
+            animation-duration: 20s;
+        }
     }
     .slideItem {
         flex: 0 0 auto;
-        width: 900px;
+        width: var(--image-width);
         height: 300px;
         background-size: cover;
         background-position: center;
+        @include sp {
+            height: 15vh;
+        }
     }
 }
 @keyframes scroll-loop {
@@ -132,11 +156,18 @@
     flex-direction: column;
     align-items: center;
     padding-inline: 2em;
+    @include sp {
+        padding-inline: 4vw;
+    }
     article {
         border-top: 1px solid #f2f2f2;
         max-width: 111rem;
         margin-top: 8em;
         padding-top: 2em;
+        @include sp {
+            max-width: unset;
+            margin-top: 8vw;
+        }
     }
 }
 
@@ -150,10 +181,16 @@
     padding-inline: 2em;
     background-color: #f2f2f2;
     margin-top: 8em;
+    @include sp {
+        padding-inline: 4vw;
+    }
     article {
         max-width: 111rem;
         padding-top: 5em;
         padding-bottom: 8em;
+        @include sp {
+            padding: 10vw 0;
+        }
         ul {
             margin-top: 3em;
         }

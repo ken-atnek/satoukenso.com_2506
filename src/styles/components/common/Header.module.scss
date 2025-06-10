@@ -17,7 +17,8 @@
         align-items: center;
         padding-block: 2rem;
         @include sp {
-            padding: 4vw;
+            padding: 2vw 4vw;
+            max-width: unset;
         }
         .linkH1 {
             font-size: inherit;
@@ -32,11 +33,18 @@
             font-size: inherit;
             display: flex;
             align-items: center;
+            justify-content: center;
             gap: 2em;
             .itemLink {
                 font-size: FZ(16);
                 text-transform: uppercase;
                 letter-spacing: 0.07em;
+                &.isMobile {
+                    display: none;
+                    @include sp {
+                        display: inline;
+                    }
+                }
             }
             @include sp {
                 position: fixed;
@@ -46,8 +54,7 @@
                 height: 100vh;
                 height: 100dvh;
                 flex-direction: column;
-                align-items: flex-start;
-                padding: 20vw 0 0 8vw;
+                padding: 10vw 0;
                 background-color: #fff;
                 translate: 100vw;
                 transition: 0.3s ease-out;
@@ -78,9 +85,9 @@
 }
 .hamburgerButton {
     position: fixed;
-    top: 2vw;
-    right: 2vw;
-    width: 8vw;
+    top: 4vw;
+    right: 4vw;
+    width: 10vw;
     aspect-ratio: 1;
 
     // border: solid 1px #000000;
@@ -89,23 +96,24 @@
     @include sp {
         display: block;
         background-color: #fff;
+        border: 1px solid $base-black;
     }
     span {
         position: absolute;
         top: 50%;
         left: 50%;
         width: 60%;
-        height: 1px;
+        height: 2px;
         background-color: $base-black;
         transition: 0.3s ease-out;
         &:nth-of-type(1) {
-            translate: -50% calc(-50% - 4px);
+            translate: -50% calc(-50% - 7px);
         }
         &:nth-of-type(2) {
             translate: -50% -50%;
         }
         &:nth-of-type(3) {
-            translate: -50% calc(-50% + 4px);
+            translate: -50% calc(-50% + 7px);
         }
     }
     &.is-open {

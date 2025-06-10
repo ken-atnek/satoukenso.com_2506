@@ -6,6 +6,11 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 0 3em;
+    @include sp {
+        grid-template-columns: unset;
+        grid-auto-flow: row;
+        gap: 6vw 0;
+    }
 }
 .boxDetail {
     background-color: #fff;
@@ -15,6 +20,9 @@
     display: grid;
     grid-template-rows: subgrid;
     gap: 0.5em 0;
+    @include sp {
+        padding: 8vw 6vw 4vw;
+    }
     img {
         aspect-ratio: 1.5;
         object-fit: cover;
