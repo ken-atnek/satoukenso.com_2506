@@ -65,7 +65,7 @@ export default function PageContact() {
 
     try {
       const response = await fetch(
-        'https://demo-satoukenso.tuna-pic.co.jp/backend/contact.php',
+        'https://satoukenso.com/backend/contact.php',
         {
           method: 'POST',
           body: formData,
