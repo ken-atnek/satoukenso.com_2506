@@ -26,8 +26,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 	}
 
 	// 📩 **メールの設定**
-	$to = "ken.atnek@gmail.com";
-	// $to = "sato-kensou@air.ocn.ne.jp";
+	//$to = "ken.atnek@gmail.com";
+	$to = "sato-kensou@air.ocn.ne.jp";
 	$to_name = "佐藤建装";
 	$send_date = date("Y/n/j-H:i", time());
 
